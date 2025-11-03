@@ -33,6 +33,10 @@ def generate_video():
     prompt = data.get("prompt")
     if not prompt:
         return jsonify({"error": "prompt is required"}), 400
+    
+    # 디버깅을 위한 출력
+    print(f"======= AI에게 전달될 프롬프트: {prompt} =======")
+
 
     output_gcs_uri = os.getenv("OUTPUT_GCS_URI")
     if not output_gcs_uri or not output_gcs_uri.startswith("gs://"):
